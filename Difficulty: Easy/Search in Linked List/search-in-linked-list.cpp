@@ -20,6 +20,6 @@ class Solution {
             }
             head=head->next;
         }
-        return 0;
+        return false;
     }
 };
