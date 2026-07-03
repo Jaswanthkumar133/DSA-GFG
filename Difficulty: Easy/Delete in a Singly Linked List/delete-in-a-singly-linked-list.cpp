@@ -17,19 +17,20 @@ class Solution {
             return head;
         }
         if(x==1){
-            return head->next;
-        }
-        Node* dell=head;
-        while(x>2 && dell!=NULL){
-            dell=dell->next;
-            x--;
-        }
-        if(dell==NULL || dell->next==NULL){
+            head=head->next;
             return head;
         }
-        Node * temp=dell->next;
-        dell->next=temp->next;
-        delete temp;
+        Node* temp=head;
+        while(x>2 && temp){
+            temp=temp->next;
+            x--;
+        }
+        if(temp==NULL || temp->next==NULL){
+            return head;
+        }
+        Node* dell=temp->next;
+        temp->next=dell->next;
+        delete dell;
         return head;
     }
 };
