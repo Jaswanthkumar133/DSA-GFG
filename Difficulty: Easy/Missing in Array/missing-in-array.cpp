@@ -7,7 +7,7 @@ class Solution {
             x^=arr[i];
             x^=(i+1);
         }
-        x^=(arr.size()+1);
+        x=x^(arr.size()+1);
         return x;
     }
 };
