@@ -1,22 +1,22 @@
 class Solution {
-public:
+  public:
     vector<int> findTwoElement(vector<int>& arr) {
-
-        int n = arr.size();
-
-        long long sum = 1LL * n * (n + 1) / 2;
-        long long sqSum = 1LL * n * (n + 1) * (2LL * n + 1) / 6;
-
-        for (int i = 0; i < n; i++) {
-            sum -= arr[i];
-            sqSum -= 1LL * arr[i] * arr[i];
+        // code here
+        int n=arr.size();
+        long long sum=0;
+        long long sqsum=0;
+        for(int i=0;i<arr.size();i++){
+            sum+=arr[i];
+            sqsum+=1LL* arr[i]*arr[i];
         }
-
-        long long del = sqSum / sum;
-
-        long long missing = (sum + del) / 2;
-        long long repeating = del - missing;
-
-        return {(int)repeating, (int)missing};
+        
+        for(int i=0;i<arr.size();i++){
+            sum-=(i+1);
+            sqsum-=1LL*(i+1)*(i+1);
+        }
+        long long res=sqsum/sum;
+        long long repeating=(res+sum)/2;
+        long long missing=res-repeating;
+        return {(int)repeating,(int)missing};
     }
 };
