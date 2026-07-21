@@ -10,4 +10,4 @@
 <pre><span style="font-size: 14pt;"><strong>Input:</strong> arr[] = [2, 3, 7, 10, 11, 11, 25], target = 100
 <strong>Output:</strong> 7
 <strong>Explanation:</strong> As no element in arr[] is greater than 100, return the length of array.</span></pre>
-<p><span style="font-size: 14pt;"><strong>Constraints:</strong><br>1 ≤ arr.size() ≤ 10<sup>6</sup><br>1 ≤ arr[i] ≤ 10<sup>6</sup><br>1 ≤ target ≤ 10<sup>6</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Binary Search</code>&nbsp;<code>Arrays</code>&nbsp;<code>Algorithms</code>&nbsp;
+<p><span style="font-size: 14pt;"><strong>Constraints:</strong><br>1 ≤ arr.size() ≤ 10<sup>6</sup><br>1 ≤ arr[i] ≤ 10<sup>6</sup><br>1 ≤ target ≤ 10<sup>6</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Binary Search</code>&nbsp;<code>Arrays</code>&nbsp;
