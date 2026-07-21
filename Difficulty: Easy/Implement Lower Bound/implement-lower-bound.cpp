@@ -1,16 +1,16 @@
 class Solution {
   public:
-    int lowerBound(vector<int>& nums, int target) {
-        int ans=nums.size();
+    int lowerBound(vector<int>& arr, int target) {
+        // code here
         int low=0;
-        int high=nums.size()-1;
+        int high=arr.size()-1;
+        int ans=arr.size();
         while(low<=high){
             int mid=low+(high-low)/2;
-            if(nums[mid]>=target){
+            if(arr[mid]>=target){
                 ans=mid;
                 high=mid-1;
-            }
-            else{
+            }else{
                 low=mid+1;
             }
         }
