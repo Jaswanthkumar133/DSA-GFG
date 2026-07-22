@@ -11,26 +11,26 @@ public:
 */
 class Solution {
   public:
-    Node* deleteNode(Node* head, int x) {
+    Node* deleteNode(Node* head, int pos) {
         // code here
         if(head==NULL){
             return head;
         }
-        if(x==1){
-            head=head->next;
+        if(pos==1){
+            return head->next;
+        }
+        Node* dell=head;
+        while(pos>2 && dell){
+            dell=dell->next;
+            pos--;
+        }
+        if(dell==NULL){
             return head;
         }
-        Node* temp=head;
-        while(x>2 && temp){
-            temp=temp->next;
-            x--;
-        }
-        if(temp==NULL || temp->next==NULL){
-            return head;
-        }
-        Node* dell=temp->next;
-        temp->next=dell->next;
-        delete dell;
+        Node* temp=dell->next;
+        dell->next=temp->next;
+        delete temp;
         return head;
+        
     }
 };
