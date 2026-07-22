@@ -20,8 +20,8 @@ class Solution {
             return temp;
         }
         Node* slow=head;
-        Node* fast=head->next;
-        while(fast && fast->next){
+        Node* fast=head;
+        while(fast->next && fast->next->next){
             slow=slow->next;
             fast=fast->next->next;
         }
