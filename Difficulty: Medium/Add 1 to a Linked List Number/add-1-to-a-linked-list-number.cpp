@@ -12,9 +12,12 @@ public:
 */
 class Solution {
   public:
-    Node* reverse(Node* head){
+    Node* rev(Node* head){
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+        Node* prev=nullptr;
         Node* curr=head;
-        Node* prev=NULL;
         Node* nex=NULL;
         while(curr){
             nex=curr->next;
@@ -26,25 +29,28 @@ class Solution {
     }
     Node* addOne(Node* head) {
         // code here
-        Node* temp=reverse(head);
-        int carry=1;
-        Node* dell=temp;
+        if(head==NULL){
+            return NULL;
+        }
+        Node* reverse=rev(head);
         Node* dummy=new Node(-1);
-        Node* temp2=dummy;
-        while(dell || carry){
+        Node* temp=dummy;
+        int carry=1;
+        while(carry || reverse){
             int sum=0;
-            if(dell){
-                sum+=dell->data;
-                dell=dell->next;
+            if(reverse){
+                sum=reverse->data;
             }
             sum+=carry;
-            Node* d=new Node(sum%10);
+            Node* t=new Node(sum%10);
             carry=sum/10;
-            dummy->next=d;
-            dummy=dummy->next;
+            temp->next=t;
+            temp=temp->next;
+            if(reverse){
+                reverse=reverse->next;
+            }
         }
-        Node* ans=reverse(temp2->next);
+        Node* ans=rev(dummy->next);
         return ans;
-        
     }
 };
