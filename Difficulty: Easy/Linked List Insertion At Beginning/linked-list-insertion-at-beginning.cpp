@@ -17,7 +17,7 @@ class Solution {
         // Code here
         Node* temp=new Node(x);
         if(head==NULL){
-            return temp;
+            return  temp;
         }
         temp->next=head;
         return temp;
