@@ -16,7 +16,7 @@ class Solution {
         // Code here
         while(head){
             if(head->data==key){
-                return 1;
+                return true;
             }
             head=head->next;
         }
