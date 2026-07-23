@@ -1,14 +1,15 @@
 class Solution {
   public:
-    void insert(stack<int>&st,int n){
+    void sortstack(stack<int>&st,int n){
         if(st.empty() || st.top()<=n){
             st.push(n);
             return;
         }
-        int temp=st.top();
+        int t=st.top();
         st.pop();
-        insert(st,n);
-        st.push(temp);
+        sortstack(st,n);
+        st.push(t);
+        return;
     }
     void sortStack(stack<int> &st) {
         // code here
@@ -18,6 +19,6 @@ class Solution {
         int n=st.top();
         st.pop();
         sortStack(st);
-        insert(st,n);
+        sortstack(st,n);
     }
 };
