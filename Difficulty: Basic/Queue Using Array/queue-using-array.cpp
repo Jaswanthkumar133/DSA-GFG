@@ -1,50 +1,61 @@
 class myQueue {
-
     int *arr;
     int left;
     int right;
     int size;
-    int count;     // number of elements
-
-public:
+    int count;
+  public:
     myQueue(int n) {
-        arr = new int[n];
-        size = n;
-        left = 0;
-        right = -1;
-        count = 0;
+        // Define Data Structures
+        arr=new int[n];
+        size=n;
+        count=0;
+        left=0;
+        right=-1;
     }
 
     bool isEmpty() {
-        return count == 0;
+        // check if the queue is empty
+        return count==0;
     }
 
     bool isFull() {
-        return count == size;
+        // check if the queue is full
+        return count==size;
     }
 
     void enqueue(int x) {
-        if (isFull()) return;
-
-        right = (right + 1) % size;
-        arr[right] = x;
+        // Adds an element x at the rear of the queue.
+        if(isFull()){
+            return;
+        }
+        right=(right+1)%size;
+        arr[right]=x;
         count++;
     }
 
     void dequeue() {
-        if (isEmpty()) return;
-
-        left = (left + 1) % size;
+        // Removes the front element of the queue.
+        if(isEmpty()){
+            return;
+        }
+        left=(left+1)%size;
         count--;
     }
 
     int getFront() {
-        if (isEmpty()) return -1;
+        // Returns the front element of the queue.
+        if(isEmpty()){
+            return -1;
+        }
         return arr[left];
     }
 
     int getRear() {
-        if (isEmpty()) return -1;
+        // Return the last element of queue
+        if(isEmpty()){
+            return -1;
+        }
         return arr[right];
     }
 };
