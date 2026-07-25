@@ -1,51 +1,44 @@
 class myStack {
-    int *arr;
+    vector<int>arr;
     int size;
-    int top=-1;
   public:
     myStack(int n) {
         // Define Data Structures
-        arr=new int[n];
         size=n;
     }
 
     bool isEmpty() {
         // check if the stack is empty
-        if(top==-1){
-            return true;
-        }
-        return false;
-        
+        return arr.empty();
     }
 
     bool isFull() {
-        // check if the stack is 
-        if(top==size-1){
+        // check if the stack is full
+        if(arr.size()==size){
             return true;
         }
         return false;
     }
 
     void push(int x) {
-        // inserts x at the top of the stack
-        if(top==size-1){
-            return;
+        // inserts x at the top of the sta
+        if(!isFull()){
+            arr.push_back(x);
         }
-        arr[++top]=x;
     }
 
     void pop() {
-        if(isEmpty()){
-            return;
+        // removes an element from the top of the stack
+        if(!isEmpty()){
+            arr.pop_back();
         }
-        top--;
     }
 
     int peek() {
         // Returns the top element of the stack
-        if(top==-1){
-            return -1;
+        if(!isEmpty()){
+            return arr.back();
         }
-        return arr[top];
+        return -1;
     }
 };
