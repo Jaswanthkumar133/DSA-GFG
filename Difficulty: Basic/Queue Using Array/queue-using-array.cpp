@@ -9,9 +9,9 @@ class myQueue {
         // Define Data Structures
         arr=new int[n];
         size=n;
-        count=0;
         left=0;
         right=-1;
+        count=0;
     }
 
     bool isEmpty() {
@@ -26,36 +26,34 @@ class myQueue {
 
     void enqueue(int x) {
         // Adds an element x at the rear of the queue.
-        if(isFull()){
-            return;
+        if(!isFull()){
+            right=(right+1)%size;
+            arr[right]=x;
+            count++;
         }
-        right=(right+1)%size;
-        arr[right]=x;
-        count++;
     }
 
     void dequeue() {
         // Removes the front element of the queue.
-        if(isEmpty()){
-            return;
+        if(!isEmpty()){
+            left=(left+1)%size;
+            count--;
         }
-        left=(left+1)%size;
-        count--;
     }
 
     int getFront() {
         // Returns the front element of the queue.
-        if(isEmpty()){
-            return -1;
+        if(!isEmpty()){
+            return arr[left];
         }
-        return arr[left];
+        return -1;
     }
 
     int getRear() {
         // Return the last element of queue
-        if(isEmpty()){
-            return -1;
+        if(!isEmpty()){
+            return arr[right];
         }
-        return arr[right];
+        return -1;
     }
 };
