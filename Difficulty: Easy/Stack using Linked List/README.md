@@ -8,7 +8,7 @@
 <li><span style="font-size: 14pt;">4: Call isEmpty()</span></li>
 <li><span style="font-size: 14pt;">5: Call size()</span></li>
 </ul>
-<p><span style="font-size: 18.6667px;">Implement only the functions <strong>push,</strong> <strong>pop,</strong> <strong>peek,</strong> <strong>isEmpty,</strong> and <strong>size</strong>. The driver code handles input and output.</span></p>
+<p><span style="font-size: 18.6667px;">Implement only the functions push, pop, peek, isEmpty, and size. The driver code handles input and output.</span></p>
 <p><span style="font-size: 14pt;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 14pt;"><strong>Input: </strong>q = 7, queries[][] = [[1, 5], [1, 3], [1, 4], [3], [2], [5], [4]]
 <strong>Output: </strong>[4, 2, false]<strong>
