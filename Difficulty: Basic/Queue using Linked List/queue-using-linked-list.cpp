@@ -10,7 +10,7 @@ class Node {
 };
 
 class myQueue {
-    Node* left;
+    Node*left;
     Node* right;
     int si;
   public:
@@ -22,47 +22,45 @@ class myQueue {
     }
 
     bool isEmpty() {
-        // check if the queue is empty
+        // check if the queue is 
         return si==0;
+        
     }
 
     void enqueue(int x) {
         // Adds an element x at the rear of the queue
-        if(si==0){
+        if(left==NULL){
             Node* temp=new Node(x);
             left=temp;
             right=temp;
             si++;
-            return ;
+            return;
         }
-        Node* temp=new Node(x);
+        Node*temp=new Node(x);
         right->next=temp;
         right=right->next;
         si++;
     }
 
     void dequeue() {
-        // Removes the front element of the queue
+        // Removes the front element of the 
         if(!isEmpty()){
-            Node* dell=left;
             left=left->next;
-            delete dell;
             si--;
-            return;
         }
     }
 
     int getFront() {
         // Returns the front element of the queue
         // If queue is empty, return -1
-        if(si==0){
-            return -1;
+        if(!isEmpty()){
+            return left->data;
         }
-        return left->data;
+        return -1;
     }
 
     int size() {
-        // Returns the current size of the queue.
+        // Returns the current size of the queue
         return si;
     }
 };
