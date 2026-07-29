@@ -10,14 +10,14 @@ class Node {
 };
 
 class myQueue {
-    Node * right;
     Node* left;
+    Node* right;
     int si;
   public:
     myQueue() {
         // Initialize your data members
-        left=nullptr;
-        right=nullptr;
+        left=NULL;
+        right=NULL;
         si=0;
     }
 
@@ -28,12 +28,12 @@ class myQueue {
 
     void enqueue(int x) {
         // Adds an element x at the rear of the queue
-        if(left==NULL){
+        if(si==0){
             Node* temp=new Node(x);
             left=temp;
             right=temp;
             si++;
-            return;
+            return ;
         }
         Node* temp=new Node(x);
         right->next=temp;
@@ -43,17 +43,19 @@ class myQueue {
 
     void dequeue() {
         // Removes the front element of the queue
-        if(isEmpty()){
+        if(!isEmpty()){
+            Node* dell=left;
+            left=left->next;
+            delete dell;
+            si--;
             return;
         }
-        left=left->next;
-        si--;
     }
 
     int getFront() {
         // Returns the front element of the queue
         // If queue is empty, return -1
-        if(isEmpty()){
+        if(si==0){
             return -1;
         }
         return left->data;
