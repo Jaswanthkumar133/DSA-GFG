@@ -3,7 +3,8 @@ class Solution {
 	int prec(char ch) {
 		if (ch == '^') {
 			return 3;
-		} else if (ch == '*' || ch == '/') {
+		}
+		else if (ch == '*' || ch == '/') {
 			return 2;
 		} else if (ch == '+' || ch == '-') {
 			return 1;
@@ -12,8 +13,8 @@ class Solution {
 	}
 	string infixToPostfix(string& s) {
 		// code here
-		stack<char>st;
 		string ans = "";
+		stack<int>st;
 		for (char ch:s) {
 			if (isalnum(ch)) {
 				ans += ch;
@@ -28,7 +29,7 @@ class Solution {
 					st.pop();
 				}
 			} else {
-				while (!st.empty() && (prec(ch)<prec(st.top()) || prec(ch)==prec(st.top())) && ch!='^') {
+				while (!st.empty() && (prec(ch)<prec(st.top()) || prec(ch) == prec(st.top())) && ch != '^') {
 					ans += st.top();
 					st.pop();
 				}
