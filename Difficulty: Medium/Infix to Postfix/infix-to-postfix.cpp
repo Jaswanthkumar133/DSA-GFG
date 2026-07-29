@@ -1,25 +1,24 @@
 class Solution {
 	public:
-	int pred(char ch) {
+	int prec(char ch) {
 		if (ch == '^') {
 			return 3;
 		} else if (ch == '*' || ch == '/') {
 			return 2;
 		} else if (ch == '+' || ch == '-') {
 			return 1;
-		} else {
-			return 0;
 		}
+		return 0;
 	}
 	string infixToPostfix(string& s) {
 		// code here
-		string ans = "";
 		stack<char>st;
+		string ans = "";
 		for (char ch:s) {
 			if (isalnum(ch)) {
 				ans += ch;
 			} else if (ch == '(') {
-				st.push('(');
+				st.push(ch);
 			} else if (ch == ')') {
 				while (!st.empty() && st.top() != '(') {
 					ans += st.top();
@@ -29,11 +28,10 @@ class Solution {
 					st.pop();
 				}
 			} else {
-				    while(!st.empty() &&(pred(ch) < pred(st.top()) ||
-                       (pred(ch) == pred(st.top()) && ch != '^'))) {
-                    ans += st.top();
-                    st.pop();
-                }
+				while (!st.empty() && (prec(ch)<prec(st.top()) || prec(ch)==prec(st.top())) && ch!='^') {
+					ans += st.top();
+					st.pop();
+				}
 				st.push(ch);
 			}
 		}
