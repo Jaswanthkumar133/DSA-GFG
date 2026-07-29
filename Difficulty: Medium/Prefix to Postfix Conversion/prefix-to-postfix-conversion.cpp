@@ -3,8 +3,8 @@ class Solution {
     string preToPost(string &s) {
         // code here
         stack<string>st;
-        int i=s.size()-1;
-        while(i>=0){
+        string ans="";
+        for(int i=s.size()-1;i>=0;i--){
             if(isalnum(s[i])){
                 st.push(string(1,s[i]));
             }else{
@@ -14,7 +14,6 @@ class Solution {
                 st.pop();
                 st.push(s1+s2+s[i]);
             }
-            i--;
         }
         return st.top();
     }
