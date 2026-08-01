@@ -4,13 +4,14 @@ class myQueue {
     int right;
     int si;
     int count;
+
   public:
     myQueue(int n) {
         // Define Data Structures
         arr=new int[n];
+        si=n;
         left=0;
         right=-1;
-        si=n;
         count=0;
     }
 
@@ -21,7 +22,7 @@ class myQueue {
 
     bool isFull() {
         // check if the queue is full
-        return count==si;
+        return  count==si;
     }
 
     void enqueue(int x) {
@@ -43,17 +44,17 @@ class myQueue {
 
     int getFront() {
         // Returns the front element of the queue.
-        if(isEmpty()){
-            return -1;
+        if(!isEmpty()){
+            return arr[left];
         }
-        return arr[left];
+        return -1;
     }
 
     int getRear() {
         // Return the last element of queue
-        if(isEmpty()){
-            return -1;
+        if(!isEmpty()){
+            return arr[right];
         }
-        return arr[right];
+        return -1;
     }
 };
