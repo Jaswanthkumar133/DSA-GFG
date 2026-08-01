@@ -8,7 +8,11 @@ class Solution {
             while(!st.empty() && arr[i]<=st.top()){
                 st.pop();
             }
-            ans[i]=(st.empty())?-1:st.top();
+            if(st.empty()){
+                ans[i]=-1;
+            }else{
+                ans[i]=st.top();
+            }
             st.push(arr[i]);
         }
         return ans;
