@@ -3,16 +3,15 @@ class Solution {
     string preToPost(string &s) {
         // code here
         stack<string>st;
-        reverse(s.begin(),s.end());
-        for(char c:s){
-            if(isalnum(c)){
-                st.push(string(1,c));
+        for(int i=s.size()-1;i>=0;i--){
+            if(isalnum(s[i])){
+                st.push(string(1,s[i]));
             }else{
                 string s1=st.top();
                 st.pop();
                 string s2=st.top();
                 st.pop();
-                st.push(s1+s2+string(1,c));
+                st.push(s1+s2+s[i]);
             }
         }
         return st.top();
