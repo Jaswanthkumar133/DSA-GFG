@@ -13,7 +13,7 @@ class Solution {
         // code here
         int key=arr[high];
         int j=low;
-        for(int i=low;i<high;i++){
+        for(int i=low;i<=high-1;i++){
             if(arr[i]<key){
                 swap(arr[i],arr[j]);
                 j++;
@@ -21,6 +21,5 @@ class Solution {
         }
         swap(arr[j],arr[high]);
         return j;
-        
     }
 };
