@@ -4,13 +4,13 @@ class Solution {
         // code here
         int largest=-1;
         int secondLargest=-1;
-        for(int i=0;i<arr.size();i++){
-            if(arr[i]>largest){
+        for(int i:arr){
+            if(i>largest){
                 secondLargest=largest;
-                largest=arr[i];
+                largest=i;
             }
-            if(arr[i]>secondLargest && arr[i]!=largest){
-                secondLargest=arr[i];
+            if(i>secondLargest && i!=largest){
+                secondLargest=i;
             }
         }
         return secondLargest;
