@@ -2,6 +2,12 @@ class Solution {
   public:
     int largest(vector<int> &arr) {
         // code here
-        return *max_element(arr.begin(),arr.end());
+        int maxi=INT_MIN;
+        for(int i:arr){
+            if(i>maxi){
+                maxi=i;
+            }
+        }
+        return  maxi;
     }
 };
