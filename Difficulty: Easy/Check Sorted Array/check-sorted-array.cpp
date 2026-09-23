@@ -2,14 +2,15 @@ class Solution {
   public:
     bool isSorted(vector<int>& arr) {
         // code here
+        int count=0;
         for(int i=0;i<arr.size()-1;i++){
             if(arr[i]>arr[i+1]){
-                return 0;
+                count++;
             }
         }
-        if(arr[0]>arr[arr.size()-1]){
-            return 0;
+        if(arr[arr.size()-1]>arr[0]){
+            count++;
         }
-        return 1;
+        return count<=1;
     }
 };
