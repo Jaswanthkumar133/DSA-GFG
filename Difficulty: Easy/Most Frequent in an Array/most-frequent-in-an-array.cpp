@@ -3,17 +3,17 @@ class Solution {
     int mostFreqEle(vector<int>& arr) {
         // code here
         map<int,int>mpp;
-        for(int i=0;i<arr.size();i++){
-            mpp[arr[i]]++;
+        for(int i:arr){
+            mpp[i]++;
         }
         int maxi=0;
-        int ans=-1;
-        for(auto i:mpp){
-            if(i.second>=maxi){
-                maxi=i.second;
-                ans=i.first;
+        int ele=-1;
+        for(auto it:mpp){
+            if(it.second>=maxi){
+                maxi=it.second;
+                ele=it.first;
             }
         }
-        return ans;
+        return ele;
     }
 };
